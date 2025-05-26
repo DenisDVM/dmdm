@@ -1,0 +1,25 @@
+{
+  "name": "dmdm",
+  "version": "1.0.0",
+  "main": "src/main/index.js",
+  "scripts": {
+    "build-renderer": "esbuild src/renderer/renderer.js --bundle --outdir=build --platform=browser --target=chrome99 --loader:.jsx=jsx --loader:.js=jsx --loader:.png=file --asset-names=/src/assets/[name]",
+    "start": "npm run build-renderer && electron .",
+    "build": "electron-packager . DM-DM --platform=win32 --arch=x64 --overwrite",
+    "rebuild": "electron-rebuild -f -w sqlite3"
+  },
+  "dependencies": {
+    "antd": "^5.13.2",
+    "antd-style": "^3.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "electron": "^30.0.6",
+    "electron-packager": "^17.1.1",
+    "electron-rebuild": "^3.2.5",
+    "esbuild": "^0.25.4"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
